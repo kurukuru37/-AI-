@@ -41,6 +41,27 @@
 - error: 오류 메시지
 
 ## Architecture
-(그래프 이미지 - 순차적 에이전트 체인)
+
+graph TD
+    User([사용자]) --> Input[입력: AI 서비스 정보]
+    Input --> System[시스템]
+    
+    System --> Agent1[서비스 분석 에이전트]
+    Agent1 --> DB[윤리 가이드라인 DB]
+    DB --> Agent2[윤리 리스크 진단 에이전트]
+    Agent2 --> Agent3[개선안 제안 에이전트]
+    Agent3 --> Agent4[리포트 작성 에이전트]
+    Agent4 --> Output[출력: AI 윤리성 리스크 진단 보고서]
+    Output --> UserOut([사용자])
+    
+    classDef agent fill:#f96,stroke:#333,stroke-width:2px;
+    classDef db fill:#b8d0ff,stroke:#333,stroke-width:1px;
+    classDef io fill:#fff,stroke:#333,stroke-width:1px;
+    classDef user fill:#ccc,stroke:#333,stroke-width:1px;
+    
+    class Agent1,Agent2,Agent3,Agent4 agent;
+    class DB db;
+    class Input,Output io;
+    class User,UserOut user;
 
 ## Directory Structure
